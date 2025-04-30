@@ -1,0 +1,18 @@
+server:
+  port: 8081  # 배치 서버 포트 (원하면 변경 가능)
+
+spring:
+  application:
+    name: quartz-batch-server
+  # Quartz 설정 (옵션)
+  quartz:
+    job-store-type: memory  # 또는 jdbc
+    scheduler-name: BatchQuartzScheduler
+    wait-for-jobs-to-complete-on-shutdown: true
+
+main-server:
+  base-url: http://localhost:8080  # 본서버 주소 (개발 환경 기준)
+
+logging:
+  level:
+    root: INFO
