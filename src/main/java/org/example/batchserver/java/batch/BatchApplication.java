@@ -1,9 +1,11 @@
-package org.example.batchserver.java.org.example.batch;
+package org.example.batchserver.java.batch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@EnableScheduling
 public class BatchApplication {
 
     public static void main(String[] args) {

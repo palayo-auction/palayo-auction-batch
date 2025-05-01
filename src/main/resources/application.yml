@@ -1,18 +1,22 @@
-server:
-  port: 8081  # 배치 서버 포트 (원하면 변경 가능)
-
 spring:
-  application:
-    name: quartz-batch-server
-  # Quartz 설정 (옵션)
-  quartz:
-    job-store-type: memory  # 또는 jdbc
-    scheduler-name: BatchQuartzScheduler
-    wait-for-jobs-to-complete-on-shutdown: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/your_db
+    username: your_user
+    password: your_password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  main:
+    allow-bean-definition-overriding: true
 
-main-server:
-  base-url: http://localhost:8080  # 본서버 주소 (개발 환경 기준)
+redis:
+  host: localhost
+  port: 6379
 
 logging:
   level:
     root: INFO
+
+server:
+  port: 8081
