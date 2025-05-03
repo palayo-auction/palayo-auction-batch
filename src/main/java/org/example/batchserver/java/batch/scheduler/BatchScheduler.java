@@ -2,7 +2,7 @@ package org.example.batchserver.java.batch.scheduler;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.batchserver.java.batch.Notification.NotificationBatch;
+import org.example.batchserver.java.batch.auction.scheduler.AuctionScheduler;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class BatchScheduler {
 
-    private final NotificationBatch notificationBatch;
+    private final AuctionScheduler auctionScheduler;
 
-    @Scheduled(fixedRate = 6000)
+    @Scheduled(fixedRate = 60000)
     public void runBatchJob() {
         try {
-            notificationBatch.execute();
+            auctionScheduler.updateAuctions();
 
         } catch (Exception e) {
             log.error("배치 작업 중 오류 발생", e);
